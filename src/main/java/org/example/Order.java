@@ -7,13 +7,40 @@ import java.util.Objects;
 
 public class Order {
     private Courier courier;
+    private Shop orderPoint;
+
+    public Courier getCourier() {
+        return courier;
+    }
+
+    public void setCourier(Courier courier) {
+        this.courier = courier;
+    }
+
+    public Shop getOrderPoint() {
+        return orderPoint;
+    }
+
+    public void setOrderPoint(Shop orderPoint) {
+        this.orderPoint = orderPoint;
+    }
+
+    public List<OrderElement> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<OrderElement> elements) {
+        this.elements = elements;
+    }
+
     private BigDecimal totalPrice;
     private String address;
     private DeliveryStatus deliveryStatus;
     private PaymentMethod paymentMethod;
     private List<OrderElement> elements;
 
-    public Order(String address, PaymentMethod paymentMethod, List<OrderElement> elements) {
+    public Order(String address, PaymentMethod paymentMethod, List<OrderElement> elements, Shop shop) {
+        this.orderPoint = shop;
         this.address = address;
         this.paymentMethod = paymentMethod;
         this.totalPrice = BigDecimal.ZERO;

@@ -9,8 +9,8 @@ public class Client {
     private String phone;
     private List<Order> clientHistory;
 
-    public void makeOrder(String address, PaymentMethod paymentMethod, List<OrderElement> elements) {
-        Order order = new Order(address, paymentMethod, elements);
+    public void makeOrder(String address, PaymentMethod paymentMethod, List<OrderElement> elements, Shop shop) {
+        Order order = new Order(address, paymentMethod, elements, shop);
         clientHistory.add(order);
     }
 
