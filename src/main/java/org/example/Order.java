@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Order {
+    private Courier courier;
     private BigDecimal totalPrice;
     private String address;
     private DeliveryStatus deliveryStatus;
@@ -45,7 +46,7 @@ public class Order {
         return Objects.equals(totalPrice, order.totalPrice) && Objects.equals(address, order.address) && deliveryStatus == order.deliveryStatus && paymentMethod == order.paymentMethod;
     }
 
-
+    public void findCourier(Shop shop) {}
 
     @Override
     public int hashCode() {
