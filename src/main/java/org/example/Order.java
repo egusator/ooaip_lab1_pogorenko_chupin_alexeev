@@ -8,31 +8,6 @@ import java.util.Objects;
 public class Order {
     private Courier courier;
     private Shop orderPoint;
-
-    public Courier getCourier() {
-        return courier;
-    }
-
-    public void setCourier(Courier courier) {
-        this.courier = courier;
-    }
-
-    public Shop getOrderPoint() {
-        return orderPoint;
-    }
-
-    public void setOrderPoint(Shop orderPoint) {
-        this.orderPoint = orderPoint;
-    }
-
-    public List<OrderElement> getElements() {
-        return elements;
-    }
-
-    public void setElements(List<OrderElement> elements) {
-        this.elements = elements;
-    }
-
     private BigDecimal totalPrice;
     private String address;
     private DeliveryStatus deliveryStatus;
@@ -110,5 +85,28 @@ public class Order {
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+    public Courier getCourier() {
+        return courier;
+    }
+
+    public void setCourier(Courier courier) {
+        this.courier = courier;
+    }
+
+    public Shop getOrderPoint() {
+        return orderPoint;
+    }
+
+    public void setOrderPoint(Shop orderPoint) {
+        this.orderPoint = orderPoint;
+    }
+
+    public List<OrderElement> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<OrderElement> elements) {
+        this.elements = elements;
     }
 }
