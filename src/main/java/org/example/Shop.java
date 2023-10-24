@@ -52,6 +52,14 @@ public class Shop {
         this.catalog = catalog;
     }
 
+    public List<Courier> getCouriers() {
+        return couriers;
+    }
+
+    public void setCouriers(List<Courier> couriers) {
+        this.couriers = couriers;
+    }
+
     public Shop(String name, LocalDateTime beginTime, LocalDateTime endTime, String address, Catalog catalog) {
         this.name = name;
         this.beginTime = beginTime;

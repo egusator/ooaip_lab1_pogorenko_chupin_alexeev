@@ -14,6 +14,9 @@ public class Order {
     private PaymentMethod paymentMethod;
     private List<OrderElement> elements;
 
+    public Order() {
+    }
+
     public Order(String address, PaymentMethod paymentMethod, List<OrderElement> elements, Shop shop) {
         this.orderPoint = shop;
         this.address = address;
@@ -25,7 +28,9 @@ public class Order {
         for(OrderElement element: elements) {
             this.totalPrice = this.totalPrice.add(element.getPrice());
         }
+        this.findCourier(shop);
     }
+
     public void addWeightedElement(ProductType type, Double weight) {
         WeightedOrderElement element = new WeightedOrderElement(type);
         element.setAmount(weight);
@@ -48,7 +53,16 @@ public class Order {
         return Objects.equals(totalPrice, order.totalPrice) && Objects.equals(address, order.address) && deliveryStatus == order.deliveryStatus && paymentMethod == order.paymentMethod;
     }
 
-    public void findCourier(Shop shop) {}
+    public void findCourier(Shop shop) {
+        for (Courier courier: shop.getCouriers()) {
+            if(courier.getFree()) {
+                this.courier = courier;
+                courier.setFree(false);
+                courier.getCourierHistory().add(this);
+                this.setDeliveryStatus(DeliveryStatus.DELIVERY_IN_PROGRESS);
+            }
+        }
+    }
 
     @Override
     public int hashCode() {

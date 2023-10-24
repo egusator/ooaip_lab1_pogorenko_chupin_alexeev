@@ -8,7 +8,9 @@ public class Courier {
     private String phone;
     private List<Order> courierHistory;
 
-    public void updateStatus(Order order) {}
+    public void updateStatus(Order order) {
+        //свич )
+    }
 
     public Boolean getFree() {
         return isFree;
