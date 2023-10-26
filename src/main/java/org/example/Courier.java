@@ -12,6 +12,10 @@ public class Courier {
         //свич )
     }
 
+    public void addOrder(Order order) {
+        this.getCourierHistory().add(order);
+    }
+
     public Boolean getFree() {
         return isFree;
     }

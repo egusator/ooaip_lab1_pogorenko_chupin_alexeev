@@ -22,11 +22,12 @@ public class Order {
         this.address = address;
         this.paymentMethod = paymentMethod;
         this.totalPrice = BigDecimal.ZERO;
-        elements = new ArrayList<>();
-        deliveryStatus = DeliveryStatus.SEARCHING_FOR_COURIER;
+            elements = new ArrayList<>();
+            deliveryStatus = DeliveryStatus.IN_PROCESS;
         this.elements = elements;
         for(OrderElement element: elements) {
-            this.totalPrice = this.totalPrice.add(element.getPrice());
+            BigDecimal price = element.getPrice();
+            this.totalPrice = this.totalPrice.add(price);
         }
         this.findCourier(shop);
     }
@@ -58,8 +59,9 @@ public class Order {
             if(courier.getFree()) {
                 this.courier = courier;
                 courier.setFree(false);
-                courier.getCourierHistory().add(this);
+                courier.addOrder(this);
                 this.setDeliveryStatus(DeliveryStatus.DELIVERY_IN_PROGRESS);
+                break;
             }
         }
     }
