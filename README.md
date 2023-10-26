@@ -1,6 +1,6 @@
 # ooaip_lab1_pogorenko_chupin_alexeev
 
-
+https://app.diagrams.net/#G1Yk3u1zD8Ob1nnipM9elTBFaedFHefXaQ
 
 Текстовые описания диаграмм: 
 
